@@ -6,23 +6,16 @@ import javax.swing.SwingUtilities;
 import models.Dokter;
 import models.Pasien;
 import models.RumahSakit;
-import views.Dokter.DokterHome;
-import views.Dokter.DokterJanjiMedis;
-import views.Dokter.DokterRiwayatJanji;
 import views.admin.AdminHome;
 import views.admin.AdminSetDokter;
 import views.admin.AdminSetPasien;
 import views.auth.LoginView;
 import views.auth.RegisterView;
-import views.pasien.PasienHome;
-import views.pasien.PasienJanjiMedis;
-import views.pasien.PasienRiwayatMedis;
 
 public class MainApp {
 
     private JFrame app;
     private RumahSakit rs;
-    public int indexCurrentUser;
 
     public static void main(String[] args) {
 

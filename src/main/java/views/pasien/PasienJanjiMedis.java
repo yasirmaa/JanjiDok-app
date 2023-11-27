@@ -4,6 +4,7 @@
  */
 package views.pasien;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Pasien;
@@ -17,6 +18,7 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
 
     private final MainApp app;
     private final Pasien pasien;
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
     public PasienJanjiMedis(MainApp app, Pasien pasien) {
         this.app = app;
@@ -42,7 +44,7 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
                 i + 1,
                 app.getRS().getJanjiMedis(i).getDokter().getFullName(),
                 app.getRS().getJanjiMedis(i).getDokter().getSpesialisasi(),
-                app.getRS().getJanjiMedis(i).getTanggal(),
+                formatter.format(app.getRS().getJanjiMedis(i).getTanggal()),
                 status                
             });
         }

@@ -2,24 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package views.pasien;
+package views.Dokter;
 
-import models.Pasien;
+import models.Dokter;
 import views.MainApp;
 
 /**
  *
  * @author Lenovo
  */
-public class PasienHome extends javax.swing.JPanel{
-    private final MainApp app;
-    private final Pasien pasien;
+public class DokterDetailJanji extends javax.swing.JPanel {
+private final MainApp app;
+    private final Dokter dokter;
 
-    public PasienHome(MainApp app, Pasien pasien) {
+    public DokterDetailJanji(MainApp app, Dokter dokter) {
         this.app = app;
         initComponents();
-        this.pasien = pasien;
-        labelNama.setText(pasien.getFullName());
+        this.dokter = dokter;
     }
 
     @SuppressWarnings("unchecked")
@@ -28,15 +27,10 @@ public class PasienHome extends javax.swing.JPanel{
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelHome = new javax.swing.JLabel();
         labelJanji = new javax.swing.JLabel();
         labelRiwayat = new javax.swing.JLabel();
         labelLogout = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        labelNama = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -46,9 +40,14 @@ public class PasienHome extends javax.swing.JPanel{
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("JanjiDok");
 
-        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Home");
+        labelHome.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelHome.setForeground(new java.awt.Color(255, 255, 255));
+        labelHome.setText("Home");
+        labelHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelHomeMouseClicked(evt);
+            }
+        });
 
         labelJanji.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         labelJanji.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,7 +87,7 @@ public class PasienHome extends javax.swing.JPanel{
                     .addComponent(labelLogout)
                     .addComponent(labelRiwayat)
                     .addComponent(labelJanji)
-                    .addComponent(jLabel2)
+                    .addComponent(labelHome)
                     .addComponent(jLabel1))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
@@ -98,7 +97,7 @@ public class PasienHome extends javax.swing.JPanel{
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(labelHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelJanji)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -108,87 +107,47 @@ public class PasienHome extends javax.swing.JPanel{
                 .addGap(33, 33, 33))
         );
 
-        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Home");
-
-        jLabel7.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel7.setText("Informasi Pribadi");
-
-        jLabel8.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel8.setText("Nama Lengkap");
-
-        labelNama.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        labelNama.setText(": Yasir Maarif");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(68, 68, 68)
-                                .addComponent(labelNama))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 505, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(labelNama))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new DokterHome(app, dokter));
+    }//GEN-LAST:event_labelHomeMouseClicked
+
+    private void labelJanjiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelJanjiMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new DokterJanjiMedis(app, dokter));
+    }//GEN-LAST:event_labelJanjiMouseClicked
+
+    private void labelRiwayatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRiwayatMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new DokterRiwayatJanji(app, dokter));
+    }//GEN-LAST:event_labelRiwayatMouseClicked
 
     private void labelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoutMouseClicked
         // TODO add your handling code here:
         app.showLoginView();
     }//GEN-LAST:event_labelLogoutMouseClicked
 
-    private void labelJanjiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelJanjiMouseClicked
-        // TODO add your handling code here:
-        app.changeView(new PasienJanjiMedis(app, pasien));
-    }//GEN-LAST:event_labelJanjiMouseClicked
-
-    private void labelRiwayatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRiwayatMouseClicked
-        // TODO add your handling code here:
-        app.changeView(new PasienRiwayatMedis(app, pasien));
-    }//GEN-LAST:event_labelRiwayatMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelHome;
     private javax.swing.JLabel labelJanji;
     private javax.swing.JLabel labelLogout;
-    private javax.swing.JLabel labelNama;
     private javax.swing.JLabel labelRiwayat;
     // End of variables declaration//GEN-END:variables
 }
