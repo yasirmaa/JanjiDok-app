@@ -4,17 +4,21 @@
  */
 package views.Dokter;
 
+import models.Dokter;
+import views.MainApp;
+
 /**
  *
  * @author Lenovo
  */
 public class DokterHome extends javax.swing.JPanel {
+    private final MainApp app;
+    private final Dokter dokter;
 
-    /**
-     * Creates new form DokterHome
-     */
-    public DokterHome() {
+    public DokterHome(MainApp app, Dokter dokter) {
+        this.app = app;
         initComponents();
+        this.dokter = dokter;
     }
 
     /**

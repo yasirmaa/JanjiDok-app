@@ -4,6 +4,9 @@
  */
 package views.pasien;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import models.Pasien;
 import views.MainApp;
 
 /**
@@ -11,13 +14,41 @@ import views.MainApp;
  * @author Lenovo
  */
 public class PasienJanjiMedis extends javax.swing.JPanel {
-    private final MainApp app;
 
-    public PasienJanjiMedis(MainApp app) {
+    private final MainApp app;
+    private final Pasien pasien;
+
+    public PasienJanjiMedis(MainApp app, Pasien pasien) {
         this.app = app;
         initComponents();
+        this.pasien = pasien;
+        tampilTabel();
     }
 
+    public void tampilTabel() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No.");
+        model.addColumn("Dokter");
+        model.addColumn("Spesialis");
+        model.addColumn("Tanggal");
+        model.addColumn("Status");
+
+        model.setRowCount(0);
+
+        for (int i = 0; i < app.getRS().getJumlahDokter(); i++) {
+            boolean isRegistered = app.getRS().getJanjiMedis(i).isPasienRegistered(this.pasien);
+            String status = isRegistered ? "Sudah Terdaftar" : "Tidak Terdaftar";
+            model.addRow(new Object[]{
+                i + 1,
+                app.getRS().getJanjiMedis(i).getDokter().getFullName(),
+                app.getRS().getJanjiMedis(i).getDokter().getSpesialisasi(),
+                app.getRS().getJanjiMedis(i).getTanggal(),
+                status                
+            });
+        }
+
+        tabelJanjiMedis.setModel(model);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +64,9 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         labelLogout = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelJanjiMedis = new javax.swing.JTable();
+        btnDaftar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -45,6 +79,11 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Home");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -53,6 +92,11 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Riwayat");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         labelLogout.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         labelLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,17 +138,47 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
                 .addGap(33, 33, 33))
         );
 
+        tabelJanjiMedis.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelJanjiMedis);
+
+        btnDaftar.setText("Daftar");
+        btnDaftar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDaftarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 506, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDaftar))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(btnDaftar)
+                .addGap(73, 73, 73)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,13 +187,34 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         app.showLoginView();
     }//GEN-LAST:event_labelLogoutMouseClicked
 
+    private void btnDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDaftarMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = tabelJanjiMedis.getSelectedRow();
+        app.getRS().getJanjiMedis(selectedRow).tambahPasien(pasien);
+        JOptionPane.showMessageDialog(this, "Pendaftaran janji medis berhasil!");
+        tampilTabel();
+    }//GEN-LAST:event_btnDaftarMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienHome(app, pasien));
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienRiwayatMedis(app, pasien));
+    }//GEN-LAST:event_jLabel4MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDaftar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelLogout;
+    private javax.swing.JTable tabelJanjiMedis;
     // End of variables declaration//GEN-END:variables
 }

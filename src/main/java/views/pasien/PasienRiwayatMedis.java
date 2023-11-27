@@ -4,6 +4,7 @@
  */
 package views.pasien;
 
+import models.Pasien;
 import views.MainApp;
 
 /**
@@ -12,10 +13,12 @@ import views.MainApp;
  */
 public class PasienRiwayatMedis extends javax.swing.JPanel {
     private final MainApp app;
+    private final Pasien pasien;
 
-    public PasienRiwayatMedis(MainApp app) {
+    public PasienRiwayatMedis(MainApp app, Pasien pasien) {
         this.app = app;
         initComponents();
+        this.pasien = pasien;
     }
 
     /**

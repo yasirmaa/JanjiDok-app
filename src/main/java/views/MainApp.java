@@ -3,13 +3,20 @@ package views;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import models.Dokter;
+import models.Pasien;
 import models.RumahSakit;
+import views.Dokter.DokterHome;
+import views.Dokter.DokterJanjiMedis;
+import views.Dokter.DokterRiwayatJanji;
 import views.admin.AdminHome;
 import views.admin.AdminSetDokter;
 import views.admin.AdminSetPasien;
 import views.auth.LoginView;
 import views.auth.RegisterView;
 import views.pasien.PasienHome;
+import views.pasien.PasienJanjiMedis;
+import views.pasien.PasienRiwayatMedis;
 
 public class MainApp {
 
@@ -21,8 +28,11 @@ public class MainApp {
 
         SwingUtilities.invokeLater(() -> {
             MainApp app = new MainApp();
+            Pasien pasien1 = new Pasien("yasir maa", "yasir", "123", "085230");
+            app.getRS().tambahPasien(pasien1);
+            Dokter dokter1 = new Dokter("Anak", "Rizal maulana", "rizalm", "rizal", "0852331212");
+            app.getRS().tambahDokter(dokter1);
             app.showLoginView();
-//            app.showPasienHome();
         });
 
     }
@@ -41,7 +51,7 @@ public class MainApp {
         return this.rs;
     }
 
-    private void changeView(JPanel view) {
+    public void changeView(JPanel view) {
         app.getContentPane().removeAll();
         app.getContentPane().add(view);
         app.revalidate();
@@ -50,13 +60,10 @@ public class MainApp {
 
     public void showSignupView() {
         changeView(new RegisterView(this));
-//        app.setSize(700, 450);
     }
 
     public void showLoginView() {
         changeView(new LoginView(this));
-//        app.setSize(700, 450);
-
     }
 
     public void showAdminHome() {
@@ -68,14 +75,9 @@ public class MainApp {
         changeView(new AdminSetPasien(this));
         app.setSize(700, 450);
     }
-    
+
     public void showAdminSetDokter() {
         changeView(new AdminSetDokter(this));
-        app.setSize(700, 450);
-    }
-    
-    public void showPasienHome() {
-        changeView(new PasienHome(this));
         app.setSize(700, 450);
     }
 }

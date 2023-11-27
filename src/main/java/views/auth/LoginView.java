@@ -6,7 +6,9 @@ import models.Admin;
 import models.Dokter;
 import models.Pasien;
 import models.User;
+import views.Dokter.DokterHome;
 import views.MainApp;
+import views.pasien.PasienHome;
 
 public class LoginView extends javax.swing.JPanel {
 
@@ -137,9 +139,9 @@ public class LoginView extends javax.swing.JPanel {
                 if (user instanceof Admin) {
                     app.showAdminHome();
                 } else if (user instanceof Pasien pasien) {
-//                    main.showView(new HomePasien(mainFrame, pasien));
+                    app.changeView(new PasienHome(app, pasien));
                 } else if (user instanceof Dokter dokter) {
-//                    main.showView(new HomeDokter(mainFrame, dokter));
+                    app.changeView(new DokterHome(app, dokter));
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Username atau password salah!");
