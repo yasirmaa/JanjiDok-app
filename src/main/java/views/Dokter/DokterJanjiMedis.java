@@ -13,10 +13,6 @@ import models.Pasien;
 import views.MainApp;
 import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Lenovo
- */
 public class DokterJanjiMedis extends javax.swing.JPanel {
 
     private final MainApp app;
@@ -303,7 +299,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
     private void btnDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDetailMouseClicked
         // TODO add your handling code here:
         int selectedRow = tableJanjiMedis.getSelectedRow();
-//        app.changeView(new DokterDetailJanji(app, dokter, dokter.getJanjiMedis(selectedRow)));
+        app.changeView(new DokterDetailJanji(app, dokter, dokter.getJanjiMedis(selectedRow)));
     }//GEN-LAST:event_btnDetailMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked

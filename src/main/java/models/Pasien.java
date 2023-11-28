@@ -17,5 +17,19 @@ public class Pasien extends User{
         super(fullName, username, password, noTelp);
         riwayatMedis = new ArrayList<>();
     }
+    public void tambahRiwayatMedis(RiwayatMedis riwayatMedis) {
+        this.riwayatMedis.add(riwayatMedis);
+    }
     
+    public RiwayatMedis getRiwayatMedis(int index) {
+        return this.riwayatMedis.get(index);
+    }
+    
+    public int getJumlahRiwayatMedis() {
+        return this.riwayatMedis.size();
+    }
+    
+    public ArrayList<RiwayatMedis> getAllRiwayatMedis() {
+        return riwayatMedis;
+    }
 }

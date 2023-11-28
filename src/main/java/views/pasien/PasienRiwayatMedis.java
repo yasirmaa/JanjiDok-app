@@ -4,6 +4,8 @@
  */
 package views.pasien;
 
+import java.text.SimpleDateFormat;
+import javax.swing.table.DefaultTableModel;
 import models.Pasien;
 import views.MainApp;
 
@@ -12,13 +14,36 @@ import views.MainApp;
  * @author Lenovo
  */
 public class PasienRiwayatMedis extends javax.swing.JPanel {
+
     private final MainApp app;
     private final Pasien pasien;
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
     public PasienRiwayatMedis(MainApp app, Pasien pasien) {
         this.app = app;
         initComponents();
         this.pasien = pasien;
+        tampilTabel();
+    }
+
+    public void tampilTabel() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No.");
+        model.addColumn("Tanggal");
+        model.addColumn("Dokter");
+        model.addColumn("Catatan");
+
+        model.setRowCount(0);
+
+        for (int i = 0; i < pasien.getJumlahRiwayatMedis(); i++) {
+            model.addRow(new Object[]{
+                i + 1,
+                formatter.format(pasien.getRiwayatMedis(i).getTanggal()),
+                pasien.getRiwayatMedis(i).getDokter().getFullName(),
+                pasien.getRiwayatMedis(i).getCatatan()
+            });
+        }
+        tableRiwayatMedis.setModel(model);
     }
 
     /**
@@ -36,6 +61,16 @@ public class PasienRiwayatMedis extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         labelLogout = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableRiwayatMedis = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        formTitle = new javax.swing.JLabel();
+        txtTanggal = new javax.swing.JTextField();
+        txtDokter = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtCatatan = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -97,17 +132,89 @@ public class PasienRiwayatMedis extends javax.swing.JPanel {
                 .addGap(33, 33, 33))
         );
 
+        tableRiwayatMedis.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "No", "Tanggal", "Dokter", "Catatan"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableRiwayatMedis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableRiwayatMedisMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableRiwayatMedis);
+
+        jLabel5.setText("Tanggal");
+
+        jLabel6.setText("Dokter");
+
+        jLabel7.setText("Catatan");
+
+        formTitle.setFont(new java.awt.Font("Poppins SemiBold", 0, 20)); // NOI18N
+        formTitle.setText("Daftar Riwayat Medis");
+
+        txtTanggal.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+
+        txtDokter.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+
+        txtCatatan.setColumns(20);
+        txtCatatan.setRows(5);
+        jScrollPane2.setViewportView(txtCatatan);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 506, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(formTitle)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDokter)
+                            .addComponent(txtTanggal)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))))
+                .addGap(0, 76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(formTitle)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,13 +223,35 @@ public class PasienRiwayatMedis extends javax.swing.JPanel {
         app.showLoginView();
     }//GEN-LAST:event_labelLogoutMouseClicked
 
+    private void tableRiwayatMedisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableRiwayatMedisMouseClicked
+        // TODO add your handling code here:
+        int index = tableRiwayatMedis.getSelectedRow();
+
+        String date = formatter.format(pasien.getRiwayatMedis(index).getTanggal());
+        String dokter = pasien.getRiwayatMedis(index).getDokter().getFullName();
+        String catatan = pasien.getRiwayatMedis(index).getCatatan();
+        txtTanggal.setText(date);
+        txtDokter.setText(dokter);
+        txtCatatan.setText(catatan);
+    }//GEN-LAST:event_tableRiwayatMedisMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel formTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelLogout;
+    private javax.swing.JTable tableRiwayatMedis;
+    private javax.swing.JTextArea txtCatatan;
+    private javax.swing.JTextField txtDokter;
+    private javax.swing.JTextField txtTanggal;
     // End of variables declaration//GEN-END:variables
 }
