@@ -9,6 +9,7 @@ views\pasien\PasienHome$2.class
 views\Dokter\DokterHome.class
 views\Dokter\DokterJanjiMedis$2.class
 views\pasien\PasienRiwayatMedis$2.class
+views\Dokter\DokterDetailJanji$8.class
 views\admin\AdminSetDokter$8.class
 views\Dokter\DokterJanjiMedis$10.class
 views\Dokter\DokterHome$3.class

@@ -37,7 +37,7 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (int i = 0; i < app.getRS().getJumlahDokter(); i++) {
+        for (int i = 0; i < app.getRS().getAllJanjiMedis().size(); i++) {
             boolean isRegistered = app.getRS().getJanjiMedis(i).isPasienRegistered(this.pasien);
             String status = isRegistered ? "Sudah Terdaftar" : "Tidak Terdaftar";
             model.addRow(new Object[]{

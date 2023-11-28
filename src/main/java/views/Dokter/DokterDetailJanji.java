@@ -71,6 +71,7 @@ public class DokterDetailJanji extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelDetailJanji = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -195,34 +196,47 @@ public class DokterDetailJanji extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabelDetailJanji);
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(formTitle)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(54, 54, 54)
-                                .addComponent(labelTanggal))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(formTitle)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(labelTanggal))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labelJumPasien)))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(labelJumPasien)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnTanganiPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(55, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTanganiPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(55, Short.MAX_VALUE))))
+                        .addComponent(btnBack)
+                        .addGap(44, 44, 44))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,7 +258,9 @@ public class DokterDetailJanji extends javax.swing.JPanel {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -272,21 +288,25 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
         int selectedRow = tabelDetailJanji.getSelectedRow();
         if (selectedRow > -1) {
-            String input = JOptionPane.showInputDialog(this,
-                    "Masukkan catatan medis:");
-
-            if (input != null) {
-                RiwayatMedis riwayatMedis = new RiwayatMedis(janjiMedis.getTanggal(), this.dokter, input);
-                Pasien pasien = janjiMedis.getPasien(selectedRow);
-
-                pasien.tambahRiwayatMedis(riwayatMedis);
-                janjiMedis.setPasienStatus(pasien, "Sudah Ditangani");
-                JOptionPane.showMessageDialog(this, "Berhasil mencatat riwayat medis!");
+            Pasien pasien = janjiMedis.getPasien(selectedRow);
+            if (janjiMedis.getPasienStatus(pasien).equals("Sudah Ditangani")) {
+                btnTanganiPasien.disable();
             } else {
-                JOptionPane.showMessageDialog(this, "Catatan medis tidak valid!");
+                String input = JOptionPane.showInputDialog(this,
+                        "Masukkan catatan medis:");
+
+                if (input != null) {
+                    RiwayatMedis riwayatMedis = new RiwayatMedis(janjiMedis.getTanggal(), this.dokter, input);
+
+                    pasien.tambahRiwayatMedis(riwayatMedis);
+                    janjiMedis.setPasienStatus(pasien, "Sudah Ditangani");
+                    JOptionPane.showMessageDialog(this, "Berhasil mencatat riwayat medis!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Catatan medis tidak valid!");
+                }
+                tampilTabel();
+                tabelDetailJanji.getSelectionModel().clearSelection();
             }
-            tampilTabel();
-            tabelDetailJanji.getSelectionModel().clearSelection();
         } else {
             JOptionPane.showMessageDialog(this, "Pilih pasien terlebih dahulu");
         }
@@ -298,8 +318,14 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
     }//GEN-LAST:event_tabelDetailJanjiMouseClicked
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        app.changeView(new DokterJanjiMedis(app, dokter));
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnTanganiPasien;
     private javax.swing.JLabel formTitle;
     private javax.swing.JLabel jLabel1;
