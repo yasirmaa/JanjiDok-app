@@ -12,6 +12,7 @@ import models.JanjiMedis;
 import models.Pasien;
 import models.RiwayatMedis;
 import views.MainApp;
+import views.auth.LoginView;
 
 /**
  *
@@ -281,7 +282,7 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
     private void labelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoutMouseClicked
         // TODO add your handling code here:
-        app.showLoginView();
+        app.changeView(new LoginView(app));
     }//GEN-LAST:event_labelLogoutMouseClicked
 
     private void btnTanganiPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTanganiPasienActionPerformed

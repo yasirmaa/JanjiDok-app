@@ -12,6 +12,7 @@ import models.JanjiMedis;
 import models.Pasien;
 import views.MainApp;
 import java.text.SimpleDateFormat;
+import views.auth.LoginView;
 
 public class DokterJanjiMedis extends javax.swing.JPanel {
 
@@ -264,7 +265,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
     private void labelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoutMouseClicked
         // TODO add your handling code here:
-        app.showLoginView();
+        app.changeView(new LoginView(app));
     }//GEN-LAST:event_labelLogoutMouseClicked
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked

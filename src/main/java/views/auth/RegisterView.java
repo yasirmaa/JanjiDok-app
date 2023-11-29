@@ -137,7 +137,7 @@ public class RegisterView extends javax.swing.JPanel {
 
     private void labelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginMouseClicked
         // TODO add your handling code here:
-        app.showSignupView();
+        app.changeView(new LoginView(app));
     }//GEN-LAST:event_labelLoginMouseClicked
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
@@ -159,7 +159,7 @@ public class RegisterView extends javax.swing.JPanel {
         Pasien pasien = new Pasien(fullName, username, password, noTelp);
         app.getRS().tambahPasien(pasien);
         JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
-        app.showLoginView();
+        app.changeView(new LoginView(app));
     }//GEN-LAST:event_btnRegisterMouseClicked
 
 

@@ -8,6 +8,7 @@ import models.Pasien;
 import models.User;
 import views.Dokter.DokterHome;
 import views.MainApp;
+import views.admin.AdminHome;
 import views.pasien.PasienHome;
 
 public class LoginView extends javax.swing.JPanel {
@@ -120,7 +121,7 @@ public class LoginView extends javax.swing.JPanel {
 
     private void labelSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSignUpMouseClicked
         // TODO add your handling code here:
-        app.showSignupView();
+        app.changeView(new RegisterView(app));
     }//GEN-LAST:event_labelSignUpMouseClicked
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
@@ -137,7 +138,7 @@ public class LoginView extends javax.swing.JPanel {
 
             if (user != null) {
                 if (user instanceof Admin) {
-                    app.showAdminHome();
+                    app.changeView(new AdminHome(app));
                 } else if (user instanceof Pasien pasien) {
                     app.changeView(new PasienHome(app, pasien));
                 } else if (user instanceof Dokter dokter) {

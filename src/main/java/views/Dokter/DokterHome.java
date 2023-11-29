@@ -6,6 +6,7 @@ package views.Dokter;
 
 import models.Dokter;
 import views.MainApp;
+import views.auth.LoginView;
 
 /**
  *
@@ -192,7 +193,7 @@ public class DokterHome extends javax.swing.JPanel {
 
     private void labelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoutMouseClicked
         // TODO add your handling code here:
-        app.showLoginView();
+        app.changeView(new LoginView(app));
     }//GEN-LAST:event_labelLogoutMouseClicked
 
 
