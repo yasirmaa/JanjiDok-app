@@ -30,11 +30,9 @@ public class RegisterView extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Register");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Full Name");
 
         inputFullName.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -42,17 +40,14 @@ public class RegisterView extends javax.swing.JPanel {
         inputNoTelp.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Number Phone");
 
         inputUsername.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Username");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Password");
 
         inputPassword.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -77,7 +72,6 @@ public class RegisterView extends javax.swing.JPanel {
         });
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Don't have an account?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -107,7 +101,7 @@ public class RegisterView extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -131,7 +125,7 @@ public class RegisterView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(labelLogin))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
