@@ -4,6 +4,14 @@
  */
 package views.pasien;
 
+import java.awt.Image;
+import java.io.File;
+import java.nio.file.Files;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import models.Pasien;
 import views.MainApp;
 import views.auth.LoginView;
@@ -21,7 +29,20 @@ public class PasienHome extends javax.swing.JPanel {
         this.app = app;
         initComponents();
         this.pasien = pasien;
-        labelNama.setText(pasien.getFullName());
+        labelNama.setText(": " +  pasien.getFullName());
+        tampilProfil();
+    }
+    
+    private void tampilProfil(){
+        if(pasien.getFotoProfile() == null){
+           ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/profile-user.png");
+           lblImage.setIcon(icon);
+        }else{
+            ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/"+pasien.getFotoProfile());
+            Image image = icon.getImage().getScaledInstance(105,90, Image.SCALE_SMOOTH);
+            ImageIcon ic = new ImageIcon(image);
+            lblImage.setIcon(ic);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -41,6 +62,12 @@ public class PasienHome extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         labelNama = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
+        btnUpload = new javax.swing.JButton();
+        labelNoTelp = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        labelUsername = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -142,7 +169,6 @@ public class PasienHome extends javax.swing.JPanel {
         );
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Home");
 
         jLabel7.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
@@ -154,6 +180,29 @@ public class PasienHome extends javax.swing.JPanel {
         labelNama.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         labelNama.setText(": Yasir Maarif");
 
+        lblImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImage.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnUpload.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit.png"))); // NOI18N
+        btnUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUploadActionPerformed(evt);
+            }
+        });
+
+        labelNoTelp.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        labelNoTelp.setText(": 085230538453");
+
+        jLabel10.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        jLabel10.setText("No Telpon");
+
+        jLabel11.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        jLabel11.setText("Username");
+
+        labelUsername.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        labelUsername.setText(": yasirmaarif");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,20 +210,36 @@ public class PasienHome extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(68, 68, 68)
-                                .addComponent(labelNama))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel5))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(68, 68, 68)
+                                        .addComponent(labelNama))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lblImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnUpload))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11))
+                                        .addGap(98, 98, 98)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelUsername)
+                                            .addComponent(labelNoTelp))))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,12 +250,24 @@ public class PasienHome extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpload))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
                     .addComponent(labelNama))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(labelNoTelp))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(labelUsername))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -225,9 +302,47 @@ public class PasienHome extends javax.swing.JPanel {
         app.changeView(new PasienHome(app, pasien));
     }//GEN-LAST:event_labelHomeMouseClicked
 
+    private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
+        try{
+            String filename;
+            JFileChooser chooser = new JFileChooser();
+            chooser.showOpenDialog(null);
+            File f = chooser.getSelectedFile();
+            ImageIcon icon = new ImageIcon(f.toString());
+            Image image = icon.getImage().getScaledInstance(lblImage.getWidth(),lblImage.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon ic = new ImageIcon(image);
+            lblImage.setIcon(ic);
+            
+            filename = f.getAbsolutePath();
+            String newPath = "src/main/resources";
+            File directory = new File(newPath);
+            if(!directory.exists()){
+                directory.mkdirs();
+            }
+            File sourceFile = null;
+            File destinationFile = null;
+            String extension = filename.substring(filename.lastIndexOf('.') + 1);
+            sourceFile = new File(filename);
+            Date tanggalUpdate = new Date();
+            String tampilan = "yyyyMMddhhmmss";
+            SimpleDateFormat fm = new SimpleDateFormat(tampilan);
+            String tanggal = String.valueOf(fm.format(tanggalUpdate));
+            destinationFile = new File(newPath+"/newImage" + tanggal.toString() + "." + extension);
+            
+            pasien.setFotoProfile("newImage" + tanggal.toString() + "." + extension);
+            
+            Files.copy(sourceFile.toPath(),destinationFile.toPath());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"error" + e);
+        }
+    }//GEN-LAST:event_btnUploadActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUpload;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -237,8 +352,11 @@ public class PasienHome extends javax.swing.JPanel {
     private javax.swing.JLabel labelJanji;
     private javax.swing.JLabel labelLogout;
     private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelNoTelp;
     private javax.swing.JLabel labelObat;
     private javax.swing.JLabel labelRiwayat;
     private javax.swing.JLabel labelRiwayatBeli;
+    private javax.swing.JLabel labelUsername;
+    private javax.swing.JLabel lblImage;
     // End of variables declaration//GEN-END:variables
 }

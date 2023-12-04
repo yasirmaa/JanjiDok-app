@@ -60,8 +60,10 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         labelLogout = new javax.swing.JLabel();
+        labelRiwayat = new javax.swing.JLabel();
+        labelObat = new javax.swing.JLabel();
+        labelRiwayatBeli = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelJanjiMedis = new javax.swing.JTable();
         btnDaftar = new javax.swing.JButton();
@@ -87,15 +89,6 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Janji Medis");
 
-        jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Riwayat");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-
         labelLogout.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         labelLogout.setForeground(new java.awt.Color(255, 255, 255));
         labelLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
@@ -106,6 +99,33 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
             }
         });
 
+        labelRiwayat.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelRiwayat.setForeground(new java.awt.Color(255, 255, 255));
+        labelRiwayat.setText("Riwayat Medis");
+        labelRiwayat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelRiwayatMouseClicked(evt);
+            }
+        });
+
+        labelObat.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelObat.setForeground(new java.awt.Color(255, 255, 255));
+        labelObat.setText("Obatku");
+        labelObat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelObatMouseClicked(evt);
+            }
+        });
+
+        labelRiwayatBeli.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelRiwayatBeli.setForeground(new java.awt.Color(255, 255, 255));
+        labelRiwayatBeli.setText("Riwayat Beli");
+        labelRiwayatBeli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelRiwayatBeliMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,8 +133,10 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRiwayatBeli)
+                    .addComponent(labelObat)
+                    .addComponent(labelRiwayat)
                     .addComponent(labelLogout)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
@@ -130,8 +152,12 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addComponent(labelRiwayat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelObat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelRiwayatBeli)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelLogout)
                 .addGap(33, 33, 33))
         );
@@ -176,7 +202,7 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
                 .addComponent(btnDaftar)
                 .addGap(73, 73, 73)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,10 +228,20 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
         app.changeView(new PasienHome(app, pasien));
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void labelRiwayatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRiwayatMouseClicked
         // TODO add your handling code here:
         app.changeView(new PasienRiwayatMedis(app, pasien));
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_labelRiwayatMouseClicked
+
+    private void labelObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelObatMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienBeliObat(app, pasien));
+    }//GEN-LAST:event_labelObatMouseClicked
+
+    private void labelRiwayatBeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRiwayatBeliMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienRiwayatBeli(app, pasien));
+    }//GEN-LAST:event_labelRiwayatBeliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -213,10 +249,12 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelLogout;
+    private javax.swing.JLabel labelObat;
+    private javax.swing.JLabel labelRiwayat;
+    private javax.swing.JLabel labelRiwayatBeli;
     private javax.swing.JTable tabelJanjiMedis;
     // End of variables declaration//GEN-END:variables
 }

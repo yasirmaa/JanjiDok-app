@@ -41,10 +41,8 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnDetail" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnCancel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane1" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
@@ -78,7 +76,6 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDetail" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -124,7 +121,7 @@
                   <Component id="labelJanji" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelRiwayat" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="235" max="32767" attributes="0"/>
+                  <EmptySpace pref="252" max="32767" attributes="0"/>
                   <Component id="labelLogout" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
@@ -231,17 +228,6 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddMouseClicked"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnDetail">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Poppins" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Detail"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDetailMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelete">

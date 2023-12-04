@@ -1,6 +1,5 @@
 package views.auth;
 
-import database.DatabaseRS;
 import javax.swing.JOptionPane;
 import models.Admin;
 import models.Dokter;

@@ -13,7 +13,25 @@ import java.util.ArrayList;
 public class Pasien extends User{
     private ArrayList<RiwayatMedis> riwayatMedis;
     private ArrayList<SoldMedicine> purchases = new ArrayList<>();
+    private String fotoProfile;
+    private String alamat;
 
+    public void setFotoProfile(String fotoProfile) {
+        this.fotoProfile = fotoProfile;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getFotoProfile() {
+        return fotoProfile;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+    
     public Pasien(String fullName, String username, String password, String noTelp) {
         super(fullName, username, password, noTelp);
         riwayatMedis = new ArrayList<>();

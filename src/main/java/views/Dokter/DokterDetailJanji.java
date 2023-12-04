@@ -73,6 +73,7 @@ public class DokterDetailJanji extends javax.swing.JPanel {
         tabelDetailJanji = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btnKembali = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,7 +145,7 @@ public class DokterDetailJanji extends javax.swing.JPanel {
                 .addComponent(labelJanji)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelRiwayat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
                 .addComponent(labelLogout)
                 .addGap(33, 33, 33))
         );
@@ -179,11 +180,11 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No", "Tanggal"
+                "No", "Nama", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -199,6 +200,14 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
         jLabel6.setText("Detail Janji Medis");
+
+        btnKembali.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btnKembali.setText("Kembali");
+        btnKembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnKembaliMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -217,8 +226,11 @@ public class DokterDetailJanji extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnTanganiPasien)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnKembali)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnTanganiPasien))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -256,7 +268,9 @@ public class DokterDetailJanji extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnTanganiPasien)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnKembali)
+                    .addComponent(btnTanganiPasien))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -315,8 +329,14 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
     }//GEN-LAST:event_tabelDetailJanjiMouseClicked
 
+    private void btnKembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKembaliMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new DokterRiwayatJanji(app, dokter));
+    }//GEN-LAST:event_btnKembaliMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnTanganiPasien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

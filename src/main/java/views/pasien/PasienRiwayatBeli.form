@@ -220,8 +220,8 @@
               <Table columnCount="6" rowCount="4">
                 <Column editable="true" title="No." type="java.lang.Object"/>
                 <Column editable="true" title="Name" type="java.lang.Object"/>
-                <Column editable="true" title="Price" type="java.lang.Object"/>
                 <Column editable="true" title="Quantity" type="java.lang.Object"/>
+                <Column editable="true" title="Total" type="java.lang.Object"/>
                 <Column editable="true" title="Order date" type="java.lang.Object"/>
                 <Column editable="true" title="Delivery date" type="java.lang.Object"/>
               </Table>
@@ -274,9 +274,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins SemiBold" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Riwayat Pembelian Obat"/>
       </Properties>

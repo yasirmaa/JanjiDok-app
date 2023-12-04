@@ -414,7 +414,7 @@ public class PasienBeliObat extends javax.swing.JPanel {
         int sumPrice = quantity * price;
 
         if (app.getRS().getObat(indexItem).buyMedicine(quantity)) {
-            SoldMedicine purchase = new SoldMedicine(id, name, price, stock, username, orderDate, deliveryDate);
+            SoldMedicine purchase = new SoldMedicine(id, name, sumPrice, stock, username, orderDate, deliveryDate);
             pasien.addPurchase(purchase);
             app.getRS().tambahSoldObat(purchase);
             JOptionPane.showMessageDialog(null, "Pemebelian barang berhasil");

@@ -31,8 +31,8 @@ public class PasienRiwayatBeli extends javax.swing.JPanel {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No.");
         model.addColumn("Name");
-        model.addColumn("Price");
         model.addColumn("Quantitiy");
+        model.addColumn("Total");
         model.addColumn("Order date");
         model.addColumn("Delivery date");
 
@@ -41,8 +41,8 @@ public class PasienRiwayatBeli extends javax.swing.JPanel {
             model.addRow(new Object[]{
                 i + 1,
                 pasien.getPurchases(i).getNamaObat(),
-                pasien.getPurchases(i).getHarga(),
                 pasien.getPurchases(i).getStok(),
+                pasien.getPurchases(i).getHarga(),
                 pasien.getPurchases(i).getOrderDate().format(formatter),
                 pasien.getPurchases(i).getDeliveryDate().format(formatter)
             });
@@ -175,7 +175,7 @@ public class PasienRiwayatBeli extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "Name", "Price", "Quantity", "Order date", "Delivery date"
+                "No.", "Name", "Quantity", "Total", "Order date", "Delivery date"
             }
         ));
         tblPurchase.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,7 +186,6 @@ public class PasienRiwayatBeli extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblPurchase);
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Riwayat Pembelian Obat");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -1,7 +1,6 @@
 views\Dokter\DokterJanjiMedis$5.class
 views\pasien\PasienRiwayatBeli.class
 views\admin\AdminSetPasien.class
-views\Dokter\DokterDetailJanji$5.class
 views\admin\AdminSetObat$11.class
 views\admin\AdminSetObatTerjual$6.class
 views\pasien\PasienHome$5.class
@@ -17,8 +16,9 @@ views\admin\AdminSetObat$9.class
 views\Dokter\DokterHome.class
 views\Dokter\DokterJanjiMedis$2.class
 views\pasien\PasienRiwayatMedis$2.class
+views\Dokter\DokterDetailJanji$8.class
 views\admin\AdminSetDokter$8.class
-views\Dokter\DokterJanjiMedis$10.class
+views\pasien\PasienRiwayatMedis$8.class
 views\Dokter\DokterHome$3.class
 views\admin\AdminSetObat$3.class
 views\pasien\PasienBeliObat$1.class
@@ -46,6 +46,7 @@ database\DatabaseRS.class
 views\admin\AdminSetPasien$1.class
 models\RiwayatMedis.class
 views\admin\AdminSetDokter$11.class
+views\pasien\PasienRiwayatMedis$7.class
 views\Dokter\DokterDetailJanji$3.class
 views\admin\AdminSetObat$4.class
 models\SoldMedicine.class
@@ -70,8 +71,9 @@ views\auth\LoginView$2.class
 views\admin\AdminSetPasien$3.class
 views\pasien\PasienRiwayatBeli$6.class
 views\pasien\PasienBeliObat$5.class
+database\DatabaseSeeder.class
 views\Dokter\DokterRiwayatJanji.class
-views\pasien\PasienTemplate.class
+views\Dokter\DokterHome$4.class
 views\admin\AdminSetObat$2.class
 views\admin\AdminHome$3.class
 views\Dokter\DokterJanjiMedis.class
@@ -96,6 +98,7 @@ views\auth\RegisterView$2.class
 views\Dokter\DokterJanjiMedis$3.class
 views\pasien\PasienRiwayatBeli$3.class
 views\Dokter\DokterJanjiMedis$6.class
+views\pasien\PasienJanjiMedis$5.class
 views\auth\LoginView.class
 views\admin\AdminSetPasien$5.class
 views\pasien\PasienRiwayatBeli$4.class
@@ -103,6 +106,7 @@ models\User.class
 views\admin\AdminSetObatTerjual$4.class
 views\admin\AdminSetObatTerjual.class
 views\pasien\PasienBeliObat$4.class
+views\pasien\PasienHome$7.class
 views\admin\AdminSetObat$7.class
 models\Medicine.class
 views\admin\AdminSetObat$1.class
@@ -113,6 +117,7 @@ views\Dokter\DokterJanjiMedis$7.class
 views\admin\AdminSetDokter$4.class
 views\pasien\PasienRiwayatBeli$5.class
 models\RumahSakit.class
+views\pasien\PasienJanjiMedis$6.class
 views\admin\AdminSetDokter$3.class
 views\pasien\PasienJanjiMedis.class
 views\pasien\PasienRiwayatMedis$3.class

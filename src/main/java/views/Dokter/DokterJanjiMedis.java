@@ -22,7 +22,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         this.dokter = dokter;
         tampilTabel();
         btnDelete.setEnabled(false);
-        btnDetail.setEnabled(false);
     }
 
     public void tampilTabel() {
@@ -43,7 +42,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
     private void bersihkan() {
         btnDelete.setEnabled(false);
-        btnDetail.setEnabled(false);
         btnAdd.setEnabled(true);
         inputTanggal.setCalendar(null);
     }
@@ -62,7 +60,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         inputTanggal = new com.toedter.calendar.JDateChooser();
         btnAdd = new javax.swing.JButton();
-        btnDetail = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -139,7 +136,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
                 .addComponent(labelJanji)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelRiwayat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
                 .addComponent(labelLogout)
                 .addGap(33, 33, 33))
         );
@@ -155,14 +152,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddMouseClicked(evt);
-            }
-        });
-
-        btnDetail.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnDetail.setText("Detail");
-        btnDetail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDetailMouseClicked(evt);
             }
         });
 
@@ -227,10 +216,8 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnAdd)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnDetail)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnDelete)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnCancel))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
@@ -254,7 +241,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnDetail)
                     .addComponent(btnDelete)
                     .addComponent(btnCancel))
                 .addGap(18, 18, 18)
@@ -304,12 +290,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         bersihkan();
     }//GEN-LAST:event_btnAddMouseClicked
 
-    private void btnDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDetailMouseClicked
-        // TODO add your handling code here:
-        int selectedRow = tableJanjiMedis.getSelectedRow();
-        app.changeView(new DokterDetailJanji(app, dokter, dokter.getJanjiMedis(selectedRow)));
-    }//GEN-LAST:event_btnDetailMouseClicked
-
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         // TODO add your handling code here:
         int selectedRow = tableJanjiMedis.getSelectedRow();
@@ -343,7 +323,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
     private void tableJanjiMedisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableJanjiMedisMouseClicked
         // TODO add your handling code here:
         btnDelete.setEnabled(true);
-        btnDetail.setEnabled(true);
         btnAdd.setEnabled(false);
     }//GEN-LAST:event_tableJanjiMedisMouseClicked
 
@@ -352,7 +331,6 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDetail;
     private javax.swing.JLabel formTitle;
     private com.toedter.calendar.JDateChooser inputTanggal;
     private javax.swing.JLabel jLabel1;

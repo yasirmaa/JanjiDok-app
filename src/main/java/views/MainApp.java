@@ -18,11 +18,20 @@ public class MainApp {
 
         SwingUtilities.invokeLater(() -> {
             MainApp app = new MainApp();
-            Pasien pasien1 = new Pasien("yasir maa", "yasir", "123", "085230");
+            Pasien pasien1 = new Pasien("Yasir Maarif", "yasirmaarif", "123", "085230538453");
+            Pasien pasien2 = new Pasien("Qois Haidar", "qoishaidar", "123", "085230538456");
             app.getRS().tambahPasien(pasien1);
+            app.getRS().tambahPasien(pasien2);
             Dokter dokter1 = new Dokter("Anak", "Rizal maulana", "rizalm", "rizal", "0852331212");
+            Dokter dokter2 = new Dokter("Umum", "Rizal maul", "maul", "maul", "0852331213");
             app.getRS().tambahDokter(dokter1);
-            app.getRS().tambahObat(new Medicine("A10", "Bodrex Extra", 3000, 10));
+            app.getRS().tambahDokter(dokter2);
+            app.getRS().tambahObat(new Medicine("A10", "Bodrex Extra", 3000, 11));
+            app.getRS().tambahObat(new Medicine("A9", "Parasetamol", 3000, 20));
+            app.getRS().tambahObat(new Medicine("A8", "Ibuprofen", 3000, 10));
+            app.getRS().tambahObat(new Medicine("A7", "Amoksisilin", 3000, 30));
+            app.getRS().tambahObat(new Medicine("A6", "Omeprazole", 3000, 8));
+            app.getRS().tambahObat(new Medicine("A5", "Simvastatin", 3000, 10));
             app.changeView(new LoginView(app));
         });
 

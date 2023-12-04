@@ -1,28 +1,27 @@
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\pasien\PasienTemplate.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\RiwayatMedis.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\pasien\PasienHome.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\Dokter\DokterDetailJanji.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\pasien\PasienJanjiMedis.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\admin\AdminSetObat.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\Dokter\DokterRiwayatJanji.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\admin\AdminSetObatTerjual.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\MainApp.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\Admin.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\auth\LoginView.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\RumahSakit.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\Dokter.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\pasien\PasienBeliObat.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\Pasien.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\auth\RegisterView.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\admin\AdminSetPasien.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\pasien\PasienRiwayatBeli.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\pasien\PasienRiwayatMedis.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\admin\AdminSetDokter.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\User.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\Dokter\DokterJanjiMedis.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\database\DatabaseRS.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\JanjiMedis.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\Medicine.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\admin\AdminHome.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\views\Dokter\DokterHome.java
-T:\Kuliah\Semester 3\PBO\JanjiDok\src\main\java\models\SoldMedicine.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\Medicine.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\Pasien.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\Dokter\DokterHome.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\database\DatabaseRS.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\auth\LoginView.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\SoldMedicine.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\Dokter.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\MainApp.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\pasien\PasienRiwayatMedis.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\User.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\admin\AdminHome.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\auth\RegisterView.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\RumahSakit.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\pasien\PasienJanjiMedis.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\Admin.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\admin\AdminSetDokter.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\Dokter\DokterJanjiMedis.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\Dokter\DokterDetailJanji.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\admin\AdminSetPasien.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\pasien\PasienRiwayatBeli.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\admin\AdminSetObatTerjual.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\Dokter\DokterRiwayatJanji.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\pasien\PasienHome.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\JanjiMedis.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\admin\AdminSetObat.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\models\RiwayatMedis.java
+C:\Users\ASUS\OneDrive\Documents\NetBeansProjects\JanjiDok-app\src\main\java\views\pasien\PasienBeliObat.java

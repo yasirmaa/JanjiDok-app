@@ -14,6 +14,15 @@ public class Dokter extends User{
     private String spesialisasi;
     private ArrayList<JanjiMedis> janjiMedis;
     private ArrayList<JanjiMedis> riwayatJanjiMedis;
+    private String fotoProfile;
+
+    public String getFotoProfile() {
+        return fotoProfile;
+    }
+
+    public void setFotoProfile(String fotoProfile) {
+        this.fotoProfile = fotoProfile;
+    }
     
     public Dokter(String spesialisasi, String fullName, String username, String password, String noTelp) {
         super(fullName, username, password, noTelp);
