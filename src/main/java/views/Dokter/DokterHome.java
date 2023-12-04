@@ -30,7 +30,7 @@ public class DokterHome extends javax.swing.JPanel {
         labelUsername.setText(": " + dokter.getUsername());
         
         if(dokter.getFotoProfile() == null){
-           ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/profile-user.png");
+           ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
            lblImage.setIcon(icon);
         }else{
             ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/"+dokter.getFotoProfile());

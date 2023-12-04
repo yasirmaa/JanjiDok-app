@@ -40,7 +40,7 @@ public class PasienHome extends javax.swing.JPanel {
            ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
            lblImage.setIcon(icon);
         }else{
-            ImageIcon icon = new ImageIcon("T:\\Kuliah\\Semester 3\\PBO\\JanjiDok\\src\\main\\resources\\"+pasien.getFotoProfile());
+            ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/"+pasien.getFotoProfile());
             Image image = icon.getImage().getScaledInstance(105,90, Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);

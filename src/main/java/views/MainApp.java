@@ -20,8 +20,10 @@ public class MainApp {
             MainApp app = new MainApp();
             Pasien pasien1 = new Pasien("Yasir Maarif", "yasirmaarif", "123", "085230538453");
             Pasien pasien2 = new Pasien("Qois Haidar", "qoishaidar", "123", "085230538456");
+            Pasien pasien3 = new Pasien("Irham kafi", "kafirh", "123", "085231234567");
             app.getRS().tambahPasien(pasien1);
             app.getRS().tambahPasien(pasien2);
+            app.getRS().tambahPasien(pasien3);
             Dokter dokter1 = new Dokter("Anak", "Rizal maulana", "rizalm", "rizal", "0852331212");
             Dokter dokter2 = new Dokter("Umum", "Rizal maul", "maul", "maul", "0852331213");
             app.getRS().tambahDokter(dokter1);
