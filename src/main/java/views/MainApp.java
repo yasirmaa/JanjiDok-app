@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import models.Dokter;
+import models.Medicine;
 import models.Pasien;
 import models.RumahSakit;
 import views.auth.LoginView;
@@ -21,6 +22,7 @@ public class MainApp {
             app.getRS().tambahPasien(pasien1);
             Dokter dokter1 = new Dokter("Anak", "Rizal maulana", "rizalm", "rizal", "0852331212");
             app.getRS().tambahDokter(dokter1);
+            app.getRS().tambahObat(new Medicine("A10", "Bodrex Extra", 3000, 10));
             app.changeView(new LoginView(app));
         });
 

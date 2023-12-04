@@ -12,7 +12,8 @@ import java.util.ArrayList;
  */
 public class Pasien extends User{
     private ArrayList<RiwayatMedis> riwayatMedis;
-    
+    private ArrayList<SoldMedicine> purchases = new ArrayList<>();
+
     public Pasien(String fullName, String username, String password, String noTelp) {
         super(fullName, username, password, noTelp);
         riwayatMedis = new ArrayList<>();
@@ -31,5 +32,17 @@ public class Pasien extends User{
     
     public ArrayList<RiwayatMedis> getAllRiwayatMedis() {
         return riwayatMedis;
+    }
+    
+    public void addPurchase(SoldMedicine purchase) {
+        this.purchases.add(purchase);
+    }
+
+    public int getPurchasesAmount() {
+        return this.purchases.size();
+    }
+
+    public SoldMedicine getPurchases(int index) {
+        return purchases.get(index);
     }
 }

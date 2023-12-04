@@ -65,12 +65,6 @@ public class AdminSetPasien extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        labelDashboard = new javax.swing.JLabel();
-        labelPasien = new javax.swing.JLabel();
-        labelDokter = new javax.swing.JLabel();
-        labelLogout = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -87,81 +81,16 @@ public class AdminSetPasien extends javax.swing.JPanel {
         txtNoTelp = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        labelDashboard = new javax.swing.JLabel();
+        labelPasien = new javax.swing.JLabel();
+        labelDokter = new javax.swing.JLabel();
+        labelLogout = new javax.swing.JLabel();
+        labelObat = new javax.swing.JLabel();
+        labelObatTerjual = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel1.setBackground(new java.awt.Color(64, 123, 255));
-
-        jLabel1.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("JanjiDok");
-
-        labelDashboard.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        labelDashboard.setForeground(new java.awt.Color(255, 255, 255));
-        labelDashboard.setText("Dashboard");
-        labelDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelDashboardMouseClicked(evt);
-            }
-        });
-
-        labelPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        labelPasien.setForeground(new java.awt.Color(255, 255, 255));
-        labelPasien.setText("Pasien");
-        labelPasien.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelPasienMouseClicked(evt);
-            }
-        });
-
-        labelDokter.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        labelDokter.setForeground(new java.awt.Color(255, 255, 255));
-        labelDokter.setText("Dokter");
-        labelDokter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelDokterMouseClicked(evt);
-            }
-        });
-
-        labelLogout.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        labelLogout.setForeground(new java.awt.Color(255, 255, 255));
-        labelLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
-        labelLogout.setText("Log Out");
-        labelLogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelLogoutMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelLogout)
-                    .addComponent(labelDokter)
-                    .addComponent(labelPasien)
-                    .addComponent(labelDashboard)
-                    .addComponent(jLabel1))
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(labelDashboard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelPasien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelDokter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
-                .addComponent(labelLogout)
-                .addGap(33, 33, 33))
-        );
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -237,21 +166,119 @@ public class AdminSetPasien extends javax.swing.JPanel {
 
         txtPassword.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
+        jPanel1.setBackground(new java.awt.Color(64, 123, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(195, 450));
+
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("JanjiDok");
+
+        labelDashboard.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        labelDashboard.setText("Dashboard");
+        labelDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelDashboardMouseClicked(evt);
+            }
+        });
+
+        labelPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelPasien.setForeground(new java.awt.Color(255, 255, 255));
+        labelPasien.setText("Pasien");
+        labelPasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelPasienMouseClicked(evt);
+            }
+        });
+
+        labelDokter.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelDokter.setForeground(new java.awt.Color(255, 255, 255));
+        labelDokter.setText("Dokter");
+        labelDokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelDokterMouseClicked(evt);
+            }
+        });
+
+        labelLogout.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelLogout.setForeground(new java.awt.Color(255, 255, 255));
+        labelLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
+        labelLogout.setText("Log Out");
+        labelLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLogoutMouseClicked(evt);
+            }
+        });
+
+        labelObat.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelObat.setForeground(new java.awt.Color(255, 255, 255));
+        labelObat.setText("Obat");
+        labelObat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelObatMouseClicked(evt);
+            }
+        });
+
+        labelObatTerjual.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelObatTerjual.setForeground(new java.awt.Color(255, 255, 255));
+        labelObatTerjual.setText("Obat Terjual");
+        labelObatTerjual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelObatTerjualMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelObatTerjual)
+                    .addComponent(labelObat)
+                    .addComponent(labelLogout)
+                    .addComponent(labelDokter)
+                    .addComponent(labelPasien)
+                    .addComponent(labelDashboard)
+                    .addComponent(jLabel1))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(labelDashboard)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelPasien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelDokter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelObat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelObatTerjual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addComponent(labelLogout)
+                .addGap(33, 33, 33))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel5)
-                                .addGap(0, 356, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
@@ -276,12 +303,11 @@ public class AdminSetPasien extends javax.swing.JPanel {
                                 .addComponent(btnDelete)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCancel))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(56, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel5)
@@ -311,14 +337,10 @@ public class AdminSetPasien extends javax.swing.JPanel {
                     .addComponent(btnCancel))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void labelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoutMouseClicked
-        // TODO add your handling code here:
-        app.changeView(new LoginView(app));
-    }//GEN-LAST:event_labelLogoutMouseClicked
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         // TODO add your handling code here:
@@ -409,6 +431,21 @@ public class AdminSetPasien extends javax.swing.JPanel {
         app.changeView(new AdminSetDokter(app));
     }//GEN-LAST:event_labelDokterMouseClicked
 
+    private void labelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoutMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new LoginView(app));
+    }//GEN-LAST:event_labelLogoutMouseClicked
+
+    private void labelObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelObatMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new AdminSetObat(app));
+    }//GEN-LAST:event_labelObatMouseClicked
+
+    private void labelObatTerjualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelObatTerjualMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new AdminSetObatTerjual(app));
+    }//GEN-LAST:event_labelObatTerjualMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -427,6 +464,8 @@ public class AdminSetPasien extends javax.swing.JPanel {
     private javax.swing.JLabel labelDashboard;
     private javax.swing.JLabel labelDokter;
     private javax.swing.JLabel labelLogout;
+    private javax.swing.JLabel labelObat;
+    private javax.swing.JLabel labelObatTerjual;
     private javax.swing.JLabel labelPasien;
     private javax.swing.JTable tabelPasien;
     private javax.swing.JTextField txtFullName;

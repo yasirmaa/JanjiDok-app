@@ -208,7 +208,7 @@ public class PasienRiwayatMedis extends javax.swing.JPanel {
                             .addComponent(txtDokter)
                             .addComponent(txtTanggal)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))))
-                .addGap(0, 76, Short.MAX_VALUE))
+                .addGap(0, 75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

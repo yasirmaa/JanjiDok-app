@@ -12,7 +12,8 @@ import views.auth.LoginView;
  *
  * @author Lenovo
  */
-public class PasienHome extends javax.swing.JPanel{
+public class PasienHome extends javax.swing.JPanel {
+
     private final MainApp app;
     private final Pasien pasien;
 
@@ -29,10 +30,12 @@ public class PasienHome extends javax.swing.JPanel{
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelHome = new javax.swing.JLabel();
         labelJanji = new javax.swing.JLabel();
         labelRiwayat = new javax.swing.JLabel();
         labelLogout = new javax.swing.JLabel();
+        labelObat = new javax.swing.JLabel();
+        labelRiwayatBeli = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
@@ -47,9 +50,14 @@ public class PasienHome extends javax.swing.JPanel{
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("JanjiDok");
 
-        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Home");
+        labelHome.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelHome.setForeground(new java.awt.Color(255, 255, 255));
+        labelHome.setText("Home");
+        labelHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelHomeMouseClicked(evt);
+            }
+        });
 
         labelJanji.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         labelJanji.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,7 +70,7 @@ public class PasienHome extends javax.swing.JPanel{
 
         labelRiwayat.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         labelRiwayat.setForeground(new java.awt.Color(255, 255, 255));
-        labelRiwayat.setText("Riwayat");
+        labelRiwayat.setText("Riwayat Medis");
         labelRiwayat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelRiwayatMouseClicked(evt);
@@ -79,6 +87,24 @@ public class PasienHome extends javax.swing.JPanel{
             }
         });
 
+        labelObat.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelObat.setForeground(new java.awt.Color(255, 255, 255));
+        labelObat.setText("Obatku");
+        labelObat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelObatMouseClicked(evt);
+            }
+        });
+
+        labelRiwayatBeli.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        labelRiwayatBeli.setForeground(new java.awt.Color(255, 255, 255));
+        labelRiwayatBeli.setText("Riwayat Beli");
+        labelRiwayatBeli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelRiwayatBeliMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,10 +112,12 @@ public class PasienHome extends javax.swing.JPanel{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRiwayatBeli)
+                    .addComponent(labelObat)
                     .addComponent(labelLogout)
                     .addComponent(labelRiwayat)
                     .addComponent(labelJanji)
-                    .addComponent(jLabel2)
+                    .addComponent(labelHome)
                     .addComponent(jLabel1))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
@@ -99,12 +127,16 @@ public class PasienHome extends javax.swing.JPanel{
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(labelHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelJanji)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelRiwayat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelObat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelRiwayatBeli)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addComponent(labelLogout)
                 .addGap(33, 33, 33))
         );
@@ -178,18 +210,35 @@ public class PasienHome extends javax.swing.JPanel{
         app.changeView(new PasienRiwayatMedis(app, pasien));
     }//GEN-LAST:event_labelRiwayatMouseClicked
 
+    private void labelObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelObatMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienBeliObat(app, pasien));
+    }//GEN-LAST:event_labelObatMouseClicked
+
+    private void labelRiwayatBeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRiwayatBeliMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienRiwayatBeli(app, pasien));
+    }//GEN-LAST:event_labelRiwayatBeliMouseClicked
+
+    private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
+        // TODO add your handling code here:
+        app.changeView(new PasienHome(app, pasien));
+    }//GEN-LAST:event_labelHomeMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelHome;
     private javax.swing.JLabel labelJanji;
     private javax.swing.JLabel labelLogout;
     private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelObat;
     private javax.swing.JLabel labelRiwayat;
+    private javax.swing.JLabel labelRiwayatBeli;
     // End of variables declaration//GEN-END:variables
 }

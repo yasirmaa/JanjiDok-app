@@ -16,6 +16,8 @@ public class RumahSakit {
     private ArrayList<Pasien> pasien;
     private ArrayList<Dokter> dokter;
     private ArrayList<JanjiMedis> janjiMedis;
+    private ArrayList<Medicine> medicine;
+    private ArrayList<SoldMedicine> soldMedicine;
     
     public RumahSakit() {
         admin = new ArrayList<>();
@@ -23,6 +25,8 @@ public class RumahSakit {
         pasien = new ArrayList<>();
         dokter = new ArrayList<>();
         janjiMedis = new ArrayList<>();
+        medicine = new ArrayList<>();
+        soldMedicine = new ArrayList<>();
     }
     
     //  Pasien
@@ -107,5 +111,47 @@ public class RumahSakit {
     
     public ArrayList<JanjiMedis> getAllJanjiMedis() {
         return janjiMedis;
+    }
+    
+    // Obat
+    public void tambahObat(Medicine medicine) {
+        this.medicine.add(medicine);
+    }
+    
+    public Medicine getObat(int index) {
+        return medicine.get(index);
+    }
+    
+    public void hapusObat(int index) {
+        this.medicine.remove(index);
+    }
+    
+    public void updateObat(int index, Medicine medicine) {
+        this.medicine.set(index, medicine);
+    }
+    
+    public int getJumlahObat() {
+        return medicine.size();
+    }
+    
+    public int getIndexObat(String id){
+        for(int i = 0; i < medicine.size(); i++){
+            Medicine medicine = this.medicine.get(i);
+            if(medicine.getId().equals(id)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    // Obat terjual
+    public void tambahSoldObat(SoldMedicine soldMedicine) {
+        this.soldMedicine.add(soldMedicine);
+    }
+    
+    public SoldMedicine getSoldObat(int index) {
+        return soldMedicine.get(index);
+    }
+    public int getJumlahSoldObat() {
+        return soldMedicine.size();
     }
 }
