@@ -118,6 +118,7 @@ public class AdminSetPasien extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
         btnUpdate.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,6 +127,7 @@ public class AdminSetPasien extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Red"));
         btnDelete.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,6 +136,7 @@ public class AdminSetPasien extends javax.swing.JPanel {
             }
         });
 
+        btnCancel.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
         btnCancel.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
