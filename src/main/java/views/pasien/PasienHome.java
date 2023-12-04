@@ -37,10 +37,10 @@ public class PasienHome extends javax.swing.JPanel {
         labelNoTelp.setText(": " + pasien.getNoTelp());
         labelUsername.setText(": " + pasien.getUsername());
         if(pasien.getFotoProfile() == null){
-           ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/profile-user.png");
+           ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
            lblImage.setIcon(icon);
         }else{
-            ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/"+pasien.getFotoProfile());
+            ImageIcon icon = new ImageIcon("T:\\Kuliah\\Semester 3\\PBO\\JanjiDok\\src\\main\\resources\\"+pasien.getFotoProfile());
             Image image = icon.getImage().getScaledInstance(105,90, Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);
@@ -216,31 +216,27 @@ public class PasienHome extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(jLabel5))
+                                .addComponent(jLabel8)
+                                .addGap(68, 68, 68)
+                                .addComponent(labelNama))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpload))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(68, 68, 68)
-                                        .addComponent(labelNama))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(lblImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpload))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel11))
-                                        .addGap(98, 98, 98)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelUsername)
-                                            .addComponent(labelNoTelp))))))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11))
+                                .addGap(98, 98, 98)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelUsername)
+                                    .addComponent(labelNoTelp))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
