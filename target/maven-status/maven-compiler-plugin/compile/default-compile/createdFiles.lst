@@ -42,7 +42,6 @@ views\Dokter\DokterDetailJanji.class
 views\admin\AdminHome$4.class
 views\admin\AdminSetPasien$11.class
 views\pasien\PasienJanjiMedis$2.class
-database\DatabaseRS.class
 views\admin\AdminSetPasien$1.class
 models\RiwayatMedis.class
 views\admin\AdminSetDokter$11.class
@@ -71,7 +70,6 @@ views\auth\LoginView$2.class
 views\admin\AdminSetPasien$3.class
 views\pasien\PasienRiwayatBeli$6.class
 views\pasien\PasienBeliObat$5.class
-database\DatabaseSeeder.class
 views\Dokter\DokterRiwayatJanji.class
 views\Dokter\DokterHome$4.class
 views\admin\AdminSetObat$2.class

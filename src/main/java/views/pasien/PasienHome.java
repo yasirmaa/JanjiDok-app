@@ -29,11 +29,13 @@ public class PasienHome extends javax.swing.JPanel {
         this.app = app;
         initComponents();
         this.pasien = pasien;
-        labelNama.setText(": " +  pasien.getFullName());
         tampilProfil();
     }
     
     private void tampilProfil(){
+        labelNama.setText(": " +  pasien.getFullName());
+        labelNoTelp.setText(": " + pasien.getNoTelp());
+        labelUsername.setText(": " + pasien.getUsername());
         if(pasien.getFotoProfile() == null){
            ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/profile-user.png");
            lblImage.setIcon(icon);
