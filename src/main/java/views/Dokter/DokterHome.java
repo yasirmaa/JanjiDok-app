@@ -13,28 +13,29 @@ import views.MainApp;
 import views.auth.LoginView;
 
 public class DokterHome extends javax.swing.JPanel {
+
     private final MainApp app;
     private final Dokter dokter;
 
     public DokterHome(MainApp app, Dokter dokter) {
         this.app = app;
         initComponents();
-        this.dokter = dokter;        
+        this.dokter = dokter;
         tampilProfil();
     }
-    
-    private void tampilProfil(){
+
+    private void tampilProfil() {
         labelNama.setText(": " + dokter.getFullName());
         labelSpesialis.setText(": " + dokter.getSpesialisasi());
         labelNoTelp.setText(": " + dokter.getNoTelp());
         labelUsername.setText(": " + dokter.getUsername());
-        
-        if(dokter.getFotoProfile() == null){
-           ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/profile-user.png");
-           lblImage.setIcon(icon);
-        }else{
-            ImageIcon icon = new ImageIcon("C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/JanjiDok-app/src/main/resources/"+dokter.getFotoProfile());
-            Image image = icon.getImage().getScaledInstance(105,90, Image.SCALE_SMOOTH);
+
+        if (dokter.getFotoProfile() == null) {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
+            lblImage.setIcon(icon);
+        } else {
+            ImageIcon icon = new ImageIcon("T:\\Kuliah\\Semester 3\\PBO\\JanjiDok\\src\\main\\resources\\" + dokter.getFotoProfile());
+            Image image = icon.getImage().getScaledInstance(105, 90, Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);
         }
@@ -262,20 +263,20 @@ public class DokterHome extends javax.swing.JPanel {
     }//GEN-LAST:event_labelLogoutMouseClicked
 
     private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
-        try{
+        try {
             String filename;
             JFileChooser chooser = new JFileChooser();
             chooser.showOpenDialog(null);
             File f = chooser.getSelectedFile();
             ImageIcon icon = new ImageIcon(f.toString());
-            Image image = icon.getImage().getScaledInstance(lblImage.getWidth(),lblImage.getHeight(), Image.SCALE_SMOOTH);
+            Image image = icon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);
 
             filename = f.getAbsolutePath();
             String newPath = "src/main/resources";
             File directory = new File(newPath);
-            if(!directory.exists()){
+            if (!directory.exists()) {
                 directory.mkdirs();
             }
             File sourceFile = null;
@@ -286,13 +287,13 @@ public class DokterHome extends javax.swing.JPanel {
             String tampilan = "yyyyMMddhhmmss";
             SimpleDateFormat fm = new SimpleDateFormat(tampilan);
             String tanggal = String.valueOf(fm.format(tanggalUpdate));
-            destinationFile = new File(newPath+"/newImage" + tanggal.toString() + "." + extension);
+            destinationFile = new File(newPath + "/newImage" + tanggal.toString() + "." + extension);
 
             dokter.setFotoProfile("newImage" + tanggal.toString() + "." + extension);
 
-            Files.copy(sourceFile.toPath(),destinationFile.toPath());
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"error" + e);
+            Files.copy(sourceFile.toPath(), destinationFile.toPath());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error" + e);
         }
     }//GEN-LAST:event_btnUploadActionPerformed
 

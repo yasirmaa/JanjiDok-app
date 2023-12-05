@@ -21,7 +21,8 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         initComponents();
         this.dokter = dokter;
         tampilTabel();
-        btnDelete.setEnabled(false);
+        btnTutupJadwal.setEnabled(false);
+        btnDetail.setEnabled(false);
     }
 
     public void tampilTabel() {
@@ -31,17 +32,20 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (int i = 0; i < app.getRS().getJumlahJanjiMedis(); i++) {
-            model.addRow(new Object[]{
-                i + 1,
-                formatter.format(dokter.getJanjiMedis(i).getTanggal())
-            });
+        for (int i = 0; i < dokter.getJumlahJanjiMedis(); i++) {
+            if(dokter.getJanjiMedis(i).getIsActive()){
+                model.addRow(new Object[]{
+                    i + 1,
+                    formatter.format(dokter.getJanjiMedis(i).getTanggal())
+                });                
+            }
         }
         tableJanjiMedis.setModel(model);
     }
 
     private void bersihkan() {
-        btnDelete.setEnabled(false);
+        btnTutupJadwal.setEnabled(false);
+        btnDetail.setEnabled(false);
         btnAdd.setEnabled(true);
         inputTanggal.setCalendar(null);
     }
@@ -60,11 +64,12 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         inputTanggal = new com.toedter.calendar.JDateChooser();
         btnAdd = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        btnTutupJadwal = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableJanjiMedis = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
+        btnDetail = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,11 +160,11 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnDelete.setText("Delete");
-        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTutupJadwal.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnTutupJadwal.setText("Tutup Jadwal");
+        btnTutupJadwal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDeleteMouseClicked(evt);
+                btnTutupJadwalMouseClicked(evt);
             }
         });
 
@@ -194,6 +199,14 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableJanjiMedis);
 
+        btnDetail.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnDetail.setText("Lihat Detail");
+        btnDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,13 +226,16 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
                                         .addComponent(inputTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnAdd)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnDelete)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnCancel))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnAdd)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnDetail)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnTutupJadwal)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnCancel))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(formTitle)))
@@ -241,8 +257,9 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnDelete)
-                    .addComponent(btnCancel))
+                    .addComponent(btnTutupJadwal)
+                    .addComponent(btnCancel)
+                    .addComponent(btnDetail))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -290,7 +307,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
         bersihkan();
     }//GEN-LAST:event_btnAddMouseClicked
 
-    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+    private void btnTutupJadwalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTutupJadwalMouseClicked
         // TODO add your handling code here:
         int selectedRow = tableJanjiMedis.getSelectedRow();
         JanjiMedis selectedJanjiMedis = dokter.getJanjiMedis(selectedRow);
@@ -312,7 +329,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
         tampilTabel();
         bersihkan();
-    }//GEN-LAST:event_btnDeleteMouseClicked
+    }//GEN-LAST:event_btnTutupJadwalMouseClicked
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         // TODO add your handling code here:
@@ -322,15 +339,22 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
     private void tableJanjiMedisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableJanjiMedisMouseClicked
         // TODO add your handling code here:
-        btnDelete.setEnabled(true);
+        btnTutupJadwal.setEnabled(true);
+        btnDetail.setEnabled(true);
         btnAdd.setEnabled(false);
     }//GEN-LAST:event_tableJanjiMedisMouseClicked
+
+    private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
+        int selectedRow = tableJanjiMedis.getSelectedRow();
+        app.changeView(new DokterDetailJanji(app, dokter, dokter.getJanjiMedis(selectedRow)));
+    }//GEN-LAST:event_btnDetailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDetail;
+    private javax.swing.JButton btnTutupJadwal;
     private javax.swing.JLabel formTitle;
     private com.toedter.calendar.JDateChooser inputTanggal;
     private javax.swing.JLabel jLabel1;

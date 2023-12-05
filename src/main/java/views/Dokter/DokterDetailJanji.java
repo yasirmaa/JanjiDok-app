@@ -301,7 +301,7 @@ public class DokterDetailJanji extends javax.swing.JPanel {
         if (selectedRow > -1) {
             Pasien pasien = janjiMedis.getPasien(selectedRow);
             if (janjiMedis.getPasienStatus(pasien).equals("Sudah Ditangani")) {
-                btnTanganiPasien.disable();
+                JOptionPane.showMessageDialog(this, "Pasien Sudah Ditangani");
             } else {
                 String input = JOptionPane.showInputDialog(this,
                         "Masukkan catatan medis:");
@@ -331,7 +331,7 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
     private void btnKembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKembaliMouseClicked
         // TODO add your handling code here:
-        app.changeView(new DokterRiwayatJanji(app, dokter));
+        app.changeView(new DokterJanjiMedis(app, dokter));
     }//GEN-LAST:event_btnKembaliMouseClicked
 
 

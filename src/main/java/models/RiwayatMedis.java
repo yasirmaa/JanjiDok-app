@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 import java.util.Date;
 
-/**
- *
- * @author Lenovo
- */
 public class RiwayatMedis {
     private Date tanggal;
     private Dokter dokter;
@@ -20,7 +12,6 @@ public class RiwayatMedis {
         this.dokter = dokter;
         this.catatan = catatan;
     }
-
     
     public Date getTanggal() {
         return tanggal;

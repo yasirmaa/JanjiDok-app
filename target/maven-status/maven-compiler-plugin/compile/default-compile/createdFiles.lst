@@ -19,6 +19,7 @@ views\pasien\PasienRiwayatMedis$2.class
 views\Dokter\DokterDetailJanji$8.class
 views\admin\AdminSetDokter$8.class
 views\pasien\PasienRiwayatMedis$8.class
+views\Dokter\DokterJanjiMedis$10.class
 views\Dokter\DokterHome$3.class
 views\admin\AdminSetObat$3.class
 views\pasien\PasienBeliObat$1.class

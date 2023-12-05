@@ -31,17 +31,17 @@ public class PasienHome extends javax.swing.JPanel {
         this.pasien = pasien;
         tampilProfil();
     }
-    
-    private void tampilProfil(){
-        labelNama.setText(": " +  pasien.getFullName());
+
+    private void tampilProfil() {
+        labelNama.setText(": " + pasien.getFullName());
         labelNoTelp.setText(": " + pasien.getNoTelp());
         labelUsername.setText(": " + pasien.getUsername());
-        if(pasien.getFotoProfile() == null){
-           ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
-           lblImage.setIcon(icon);
-        }else{
-            ImageIcon icon = new ImageIcon("T:\\Kuliah\\Semester 3\\PBO\\JanjiDok\\src\\main\\resources\\"+pasien.getFotoProfile());
-            Image image = icon.getImage().getScaledInstance(105,90, Image.SCALE_SMOOTH);
+        if (pasien.getFotoProfile() == null) {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
+            lblImage.setIcon(icon);
+        } else {
+            ImageIcon icon = new ImageIcon("T:\\Kuliah\\Semester 3\\PBO\\JanjiDok\\src\\main\\resources\\" + pasien.getFotoProfile());
+            Image image = icon.getImage().getScaledInstance(105, 90, Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);
         }
@@ -212,9 +212,6 @@ public class PasienHome extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,8 +234,11 @@ public class PasienHome extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelUsername)
                                     .addComponent(labelNoTelp))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(7, 184, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,20 +301,20 @@ public class PasienHome extends javax.swing.JPanel {
     }//GEN-LAST:event_labelHomeMouseClicked
 
     private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
-        try{
+        try {
             String filename;
             JFileChooser chooser = new JFileChooser();
             chooser.showOpenDialog(null);
             File f = chooser.getSelectedFile();
             ImageIcon icon = new ImageIcon(f.toString());
-            Image image = icon.getImage().getScaledInstance(lblImage.getWidth(),lblImage.getHeight(), Image.SCALE_SMOOTH);
+            Image image = icon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);
-            
+
             filename = f.getAbsolutePath();
             String newPath = "src/main/resources";
             File directory = new File(newPath);
-            if(!directory.exists()){
+            if (!directory.exists()) {
                 directory.mkdirs();
             }
             File sourceFile = null;
@@ -325,13 +325,13 @@ public class PasienHome extends javax.swing.JPanel {
             String tampilan = "yyyyMMddhhmmss";
             SimpleDateFormat fm = new SimpleDateFormat(tampilan);
             String tanggal = String.valueOf(fm.format(tanggalUpdate));
-            destinationFile = new File(newPath+"/newImage" + tanggal.toString() + "." + extension);
-            
+            destinationFile = new File(newPath + "/newImage" + tanggal.toString() + "." + extension);
+
             pasien.setFotoProfile("newImage" + tanggal.toString() + "." + extension);
-            
-            Files.copy(sourceFile.toPath(),destinationFile.toPath());
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"error" + e);
+
+            Files.copy(sourceFile.toPath(), destinationFile.toPath());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error" + e);
         }
     }//GEN-LAST:event_btnUploadActionPerformed
 

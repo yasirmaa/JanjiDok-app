@@ -190,7 +190,6 @@ public class PasienBeliObat extends javax.swing.JPanel {
         );
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("ObatKu");
 
         tblObat.setModel(new javax.swing.table.DefaultTableModel(
@@ -212,11 +211,9 @@ public class PasienBeliObat extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblObat);
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Id");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Name");
 
         txtId.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -228,11 +225,9 @@ public class PasienBeliObat extends javax.swing.JPanel {
         txtStock.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Price");
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Stock");
 
         btnBuy.setBackground(new java.awt.Color(64, 123, 255));
@@ -256,7 +251,6 @@ public class PasienBeliObat extends javax.swing.JPanel {
         txtQuantity.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Quantity");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -265,7 +259,6 @@ public class PasienBeliObat extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +266,7 @@ public class PasienBeliObat extends javax.swing.JPanel {
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel5))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1, Short.MAX_VALUE))
+                        .addGap(0, 7, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -414,12 +407,16 @@ public class PasienBeliObat extends javax.swing.JPanel {
         int sumPrice = quantity * price;
 
         if (app.getRS().getObat(indexItem).buyMedicine(quantity)) {
-            SoldMedicine purchase = new SoldMedicine(id, name, sumPrice, stock, username, orderDate, deliveryDate);
-            pasien.addPurchase(purchase);
-            app.getRS().tambahSoldObat(purchase);
-            JOptionPane.showMessageDialog(null, "Pemebelian barang berhasil");
-            tampilTabel();
-            bersihkan();
+            int jawab = JOptionPane.showConfirmDialog(null, "Total Harga = " + sumPrice + "\n Anda yakin membeli?",
+                    "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0) {
+                SoldMedicine purchase = new SoldMedicine(id, name, sumPrice, stock, username, orderDate, deliveryDate);
+                pasien.addPurchase(purchase);
+                app.getRS().tambahSoldObat(purchase);
+                JOptionPane.showMessageDialog(null, "Pemebelian barang berhasil");
+                tampilTabel();
+                bersihkan();
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Stok tidak cukup");
         }

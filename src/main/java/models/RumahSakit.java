@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author Lenovo
- */
 public class RumahSakit {
     private ArrayList<Admin> admin;
     private ArrayList<Pasien> pasien;
@@ -75,7 +67,7 @@ public class RumahSakit {
     public void tambahJanjiMedis(Date tanggal, Dokter dokter) {
         JanjiMedis janjiMedis = new JanjiMedis(tanggal, dokter);
         this.janjiMedis.add(janjiMedis);
-        dokter.getAllJanjiMedis().add(janjiMedis);
+        dokter.tambahJanjiMedis(janjiMedis);
     }
     
     public void tutupJanjiMedis(JanjiMedis janjiMedis) {        

@@ -28,11 +28,11 @@ public class DokterRiwayatJanji extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (int i = 0; i < app.getRS().getJumlahJanjiMedis(); i++) {
+        for (int i = 0; i < dokter.getJumlahRiwayatJanjiMedis(); i++) {
             model.addRow(new Object[]{
                 i + 1,
-                formatter.format(dokter.getJanjiMedis(i).getTanggal()),
-                dokter.getJanjiMedis(i).getJumlahPasien()
+                formatter.format(dokter.getRiwayatJanjiMedis(i).getTanggal()),
+                dokter.getRiwayatJanjiMedis(i).getJumlahPasien()
             });
         }
         tabelRiwayat.setModel(model);
@@ -228,7 +228,7 @@ public class DokterRiwayatJanji extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Pilih riwayat dahulu");
             return;
         }
-        app.changeView(new DokterDetailJanji(app, dokter, dokter.getJanjiMedis(selectedRow)));
+        app.changeView(new DokterDetailJanji(app, dokter, dokter.getRiwayatJanjiMedis(selectedRow)));
     }//GEN-LAST:event_btnDetailMouseClicked
 
 
