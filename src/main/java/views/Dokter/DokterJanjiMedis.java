@@ -26,21 +26,28 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
     }
 
     public void tampilTabel() {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel(){
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        return false; // Mengembalikan false agar sel tidak bisa diedit
+    }
+};
         model.addColumn("No.");
         model.addColumn("Tanggal");
 
         model.setRowCount(0);
+        
 
         for (int i = 0; i < dokter.getJumlahJanjiMedis(); i++) {
-            if(dokter.getJanjiMedis(i).getIsActive()){
+            if (dokter.getJanjiMedis(i).getIsActive()) {
                 model.addRow(new Object[]{
                     i + 1,
                     formatter.format(dokter.getJanjiMedis(i).getTanggal())
-                });                
+                });
             }
         }
         tableJanjiMedis.setModel(model);
+        
     }
 
     private void bersihkan() {
@@ -151,6 +158,12 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel2.setText("Tanggal");
+
+        inputTanggal.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                inputTanggalPropertyChange(evt);
+            }
+        });
 
         btnAdd.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAdd.setText("Tambah");
@@ -300,6 +313,30 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Tanggal yang dipilih tidak boleh sebelum hari ini!");
             return;
         } else {
+            for (int i = 0; i < dokter.getJumlahRiwayatJanjiMedis(); i++) {
+                if (tanggal.equals(dokter.getRiwayatJanjiMedis(i).getTanggal())) {
+                    int choice = JOptionPane.showConfirmDialog(null, "Tanggal sudah dihapus, apakah Anda yakin ingin memulihkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+
+                    // Memeriksa pilihan yang dipilih oleh pengguna
+                    if (choice == JOptionPane.YES_OPTION) {
+                        JanjiMedis pilihjanjimedis = dokter.getRiwayatJanjiMedis(i);// Tindakan jika pengguna memilih "Ya"
+                        app.getRS().pulihkanJanjiMedis(pilihjanjimedis);
+                        JOptionPane.showMessageDialog(this, "Berhasil memulihkan janji medis!");
+                        tampilTabel();
+                        bersihkan();
+                        return;
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Tanggal batal ditambahkan!");
+                        return;
+                    }
+                }
+            }
+            for (int j = 0; j < dokter.getJumlahJanjiMedis(); j++) {
+                if (tanggal.equals(dokter.getJanjiMedis(j).getTanggal())) {
+                    btnAdd.disable();
+                    return;
+                }
+            }
             app.getRS().tambahJanjiMedis(tanggal, dokter);
             JOptionPane.showMessageDialog(this, "Berhasil membuat janji medis!");
             tampilTabel();
@@ -346,8 +383,13 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
     private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
         int selectedRow = tableJanjiMedis.getSelectedRow();
-        app.changeView(new DokterDetailJanji(app, dokter, dokter.getJanjiMedis(selectedRow)));
+        app.changeView(new DokterDetailJanji(1,app, dokter, dokter.getJanjiMedis(selectedRow)));
     }//GEN-LAST:event_btnDetailActionPerformed
+
+    private void inputTanggalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_inputTanggalPropertyChange
+        // TODO add your handling code here:
+        btnAdd.setEnabled(true);
+    }//GEN-LAST:event_inputTanggalPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,12 +24,14 @@ public class DokterDetailJanji extends javax.swing.JPanel {
     private final Dokter dokter;
     private final JanjiMedis janjiMedis;
     private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+    private final int kode;
 
-    public DokterDetailJanji(MainApp app, Dokter dokter, JanjiMedis janjiMedis) {
+    public DokterDetailJanji(int kode, MainApp app, Dokter dokter, JanjiMedis janjiMedis) {
         this.app = app;
         initComponents();
         this.dokter = dokter;
         this.janjiMedis = janjiMedis;
+        this.kode = kode;
         labelTanggal.setText(": " + formatter.format(janjiMedis.getTanggal()));
         labelJumPasien.setText(": " + janjiMedis.getAllPasien().size());
         tampilTabel();
@@ -331,7 +333,11 @@ public class DokterDetailJanji extends javax.swing.JPanel {
 
     private void btnKembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKembaliMouseClicked
         // TODO add your handling code here:
-        app.changeView(new DokterJanjiMedis(app, dokter));
+        if(kode == 1){
+         app.changeView(new DokterJanjiMedis(app, dokter));   
+        }else{
+            app.changeView(new DokterRiwayatJanji(app,dokter));
+        }
     }//GEN-LAST:event_btnKembaliMouseClicked
 
 

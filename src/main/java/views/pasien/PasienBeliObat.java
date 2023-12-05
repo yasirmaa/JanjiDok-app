@@ -202,7 +202,15 @@ public class PasienBeliObat extends javax.swing.JPanel {
             new String [] {
                 "No", "Id Obat", "Name", "Price", "Stock"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblObat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblObatMouseClicked(evt);

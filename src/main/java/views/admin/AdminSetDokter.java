@@ -32,7 +32,12 @@ public class AdminSetDokter extends javax.swing.JPanel {
     }
 
     public void tampilDokter() {
-        DefaultTableModel model = new DefaultTableModel();
+       DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Mengembalikan false agar sel tidak bisa diedit
+            }
+        };
         model.addColumn("No.");
         model.addColumn("Nama Lengkap");
         model.addColumn("No Telpon");
@@ -121,7 +126,15 @@ public class AdminSetDokter extends javax.swing.JPanel {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelDokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelDokterMouseClicked(evt);

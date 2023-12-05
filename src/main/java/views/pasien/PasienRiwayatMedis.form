@@ -243,7 +243,7 @@
                 <Column editable="false" title="No" type="java.lang.Object"/>
                 <Column editable="false" title="Tanggal" type="java.lang.Object"/>
                 <Column editable="false" title="Dokter" type="java.lang.Object"/>
-                <Column editable="true" title="Spesialis" type="java.lang.Object"/>
+                <Column editable="false" title="Spesialis" type="java.lang.Object"/>
                 <Column editable="false" title="Catatan" type="java.lang.Object"/>
               </Table>
             </Property>

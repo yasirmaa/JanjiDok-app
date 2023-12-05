@@ -158,7 +158,6 @@ public class AdminSetObatTerjual extends javax.swing.JPanel {
         );
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Obat Terjual");
 
         tblSoldItems.setModel(new javax.swing.table.DefaultTableModel(
@@ -171,7 +170,15 @@ public class AdminSetObatTerjual extends javax.swing.JPanel {
             new String [] {
                 "No.", "Name", "Price", "Quantity", "Username", "Order date", "Delivery Date"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblSoldItems);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -177,7 +177,15 @@ public class PasienJanjiMedis extends javax.swing.JPanel {
             new String [] {
                 "No.", "Dokter", "Spesialis", "Tanggal", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelJanjiMedis);
 
         btnDaftar.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N

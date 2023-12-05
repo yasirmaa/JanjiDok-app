@@ -21,7 +21,12 @@ public class DokterRiwayatJanji extends javax.swing.JPanel {
     }
 
     public void tampilTabel() {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Mengembalikan false agar sel tidak bisa diedit
+            }
+        };
         model.addColumn("No.");
         model.addColumn("Tanggal");
         model.addColumn("Jumlah Pasien");
@@ -147,7 +152,15 @@ public class DokterRiwayatJanji extends javax.swing.JPanel {
             new String [] {
                 "No", "Tanggal", "Jumlah Pasien"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelRiwayat);
 
         btnDetail.setBackground(new java.awt.Color(64, 123, 255));
@@ -228,7 +241,7 @@ public class DokterRiwayatJanji extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Pilih riwayat dahulu");
             return;
         }
-        app.changeView(new DokterDetailJanji(app, dokter, dokter.getRiwayatJanjiMedis(selectedRow)));
+        app.changeView(new DokterDetailJanji(2, app, dokter, dokter.getRiwayatJanjiMedis(selectedRow)));
     }//GEN-LAST:event_btnDetailMouseClicked
 
 

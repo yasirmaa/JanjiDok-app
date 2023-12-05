@@ -195,19 +195,15 @@ public class AdminSetObat extends javax.swing.JPanel {
         );
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Obat");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Name");
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Price");
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Stock");
 
         txtName.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -217,7 +213,6 @@ public class AdminSetObat extends javax.swing.JPanel {
         txtStock.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Id");
 
         txtId.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -232,7 +227,15 @@ public class AdminSetObat extends javax.swing.JPanel {
             new String [] {
                 "No", "Id Obat", "Name", "Price", "Stock"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblObat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblObatMouseClicked(evt);

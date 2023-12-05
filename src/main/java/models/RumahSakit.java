@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 
 public class RumahSakit {
@@ -72,11 +73,27 @@ public class RumahSakit {
     
     public void tutupJanjiMedis(JanjiMedis janjiMedis) {        
         janjiMedis.setIsActive(false);
-        this.janjiMedis.remove(janjiMedis);
         janjiMedis.getDokter().getAllJanjiMedis().remove(janjiMedis);
         janjiMedis.getDokter().getAllRiwayatJanjiMedis().add(janjiMedis);
     }
-    
+    public void pulihkanJanjiMedis(JanjiMedis janjiMedis){
+        Dokter dokter = janjiMedis.getDokter();
+
+    // Memulihkan JanjiMedis
+    janjiMedis.setIsActive(true);
+    dokter.getAllJanjiMedis().add(janjiMedis);
+    dokter.getAllRiwayatJanjiMedis().remove(janjiMedis);
+
+    // Mengurutkan kembali daftar JanjiMedis aktif berdasarkan tanggal
+    ArrayList<JanjiMedis> activeJanjiMedis = new ArrayList<>(dokter.getAllJanjiMedis());
+    activeJanjiMedis.sort(Comparator.comparing(JanjiMedis::getTanggal));
+
+    // Menghapus semua JanjiMedis dari daftar JanjiMedis aktif
+    dokter.getAllJanjiMedis().clear();
+
+    // Menambahkan kembali JanjiMedis ke dalam daftar JanjiMedis aktif dengan urutan yang baru
+    dokter.getAllJanjiMedis().addAll(activeJanjiMedis);
+    }
     public JanjiMedis getJanjiMedis(int index) {
         return janjiMedis.get(index);
     }

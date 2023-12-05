@@ -11,10 +11,12 @@ views\Dokter\DokterRiwayatJanji$4.class
 views\admin\AdminSetDokter$2.class
 models\JanjiMedis.class
 views\pasien\PasienRiwayatBeli$2.class
+views\admin\AdminSetPasien$12.class
 views\pasien\PasienHome$2.class
 views\admin\AdminSetObat$9.class
 views\Dokter\DokterHome.class
 views\Dokter\DokterJanjiMedis$2.class
+views\pasien\PasienJanjiMedis$7.class
 views\pasien\PasienRiwayatMedis$2.class
 views\Dokter\DokterDetailJanji$8.class
 views\admin\AdminSetDokter$8.class
@@ -40,12 +42,14 @@ views\admin\AdminSetDokter$7.class
 views\pasien\PasienRiwayatBeli$1.class
 views\admin\AdminSetPasien$8.class
 views\Dokter\DokterDetailJanji.class
+views\admin\AdminSetDokter$12.class
 views\admin\AdminHome$4.class
 views\admin\AdminSetPasien$11.class
 views\pasien\PasienJanjiMedis$2.class
 views\admin\AdminSetPasien$1.class
 models\RiwayatMedis.class
 views\admin\AdminSetDokter$11.class
+views\admin\AdminSetObat$12.class
 views\pasien\PasienRiwayatMedis$7.class
 views\Dokter\DokterDetailJanji$3.class
 views\admin\AdminSetObat$4.class
@@ -60,6 +64,7 @@ views\admin\AdminSetDokter$6.class
 views\Dokter\DokterDetailJanji$2.class
 models\Pasien.class
 views\Dokter\DokterJanjiMedis$4.class
+views\pasien\PasienRiwayatBeli$8.class
 views\admin\AdminSetPasien$7.class
 views\pasien\PasienRiwayatMedis.class
 views\admin\AdminSetPasien$10.class
@@ -78,11 +83,13 @@ views\admin\AdminHome$3.class
 views\Dokter\DokterJanjiMedis.class
 views\Dokter\DokterHome$1.class
 views\admin\AdminSetDokter$9.class
+views\admin\AdminSetObatTerjual$7.class
 views\admin\AdminSetPasien$6.class
 views\pasien\PasienBeliObat$2.class
 views\admin\AdminHome$6.class
 views\Dokter\DokterDetailJanji$4.class
 views\admin\AdminSetDokter$1.class
+views\Dokter\DokterJanjiMedis$12.class
 views\Dokter\DokterJanjiMedis$9.class
 views\pasien\PasienBeliObat$8.class
 views\admin\AdminSetPasien$9.class
@@ -97,6 +104,7 @@ views\auth\RegisterView$2.class
 views\Dokter\DokterJanjiMedis$3.class
 views\pasien\PasienRiwayatBeli$3.class
 views\Dokter\DokterJanjiMedis$6.class
+views\Dokter\DokterJanjiMedis$11.class
 views\pasien\PasienJanjiMedis$5.class
 views\auth\LoginView.class
 views\admin\AdminSetPasien$5.class
@@ -104,6 +112,7 @@ views\pasien\PasienRiwayatBeli$4.class
 models\User.class
 views\admin\AdminSetObatTerjual$4.class
 views\admin\AdminSetObatTerjual.class
+views\pasien\PasienBeliObat$10.class
 views\pasien\PasienBeliObat$4.class
 views\pasien\PasienHome$7.class
 views\admin\AdminSetObat$7.class
@@ -135,3 +144,4 @@ views\Dokter\DokterHome$2.class
 views\admin\AdminSetObat$8.class
 views\admin\AdminHome$2.class
 views\pasien\PasienHome$6.class
+views\Dokter\DokterRiwayatJanji$6.class

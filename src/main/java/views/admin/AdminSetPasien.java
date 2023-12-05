@@ -155,7 +155,15 @@ public class AdminSetPasien extends javax.swing.JPanel {
             new String [] {
                 "No.", "Nama Lengkap", "Telpon", "Username", "Password"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelPasien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelPasienMouseClicked(evt);
