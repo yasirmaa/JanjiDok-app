@@ -25,7 +25,6 @@ public class AdminSetPasien extends javax.swing.JPanel {
         tampilPasien();
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
-        System.out.println(app.getRS().getJumlahPasien());
     }
 
     public void bersihkan() {
@@ -40,7 +39,12 @@ public class AdminSetPasien extends javax.swing.JPanel {
     }
 
     public void tampilPasien() {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Mengembalikan false agar sel tidak bisa diedit
+            }
+        };
         model.addColumn("No.");
         model.addColumn("Nama Lengkap");
         model.addColumn("No Telpon");

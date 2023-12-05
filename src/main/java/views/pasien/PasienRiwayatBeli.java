@@ -28,7 +28,12 @@ public class PasienRiwayatBeli extends javax.swing.JPanel {
     }
 
     public void tampilPembelian() {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Mengembalikan false agar sel tidak bisa diedit
+            }
+        };
         model.addColumn("No.");
         model.addColumn("Name");
         model.addColumn("Quantitiy");

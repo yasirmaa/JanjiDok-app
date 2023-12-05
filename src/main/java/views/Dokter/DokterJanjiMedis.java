@@ -26,17 +26,16 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
     }
 
     public void tampilTabel() {
-        DefaultTableModel model = new DefaultTableModel(){
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        return false; // Mengembalikan false agar sel tidak bisa diedit
-    }
-};
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Mengembalikan false agar sel tidak bisa diedit
+            }
+        };
         model.addColumn("No.");
         model.addColumn("Tanggal");
 
         model.setRowCount(0);
-        
 
         for (int i = 0; i < dokter.getJumlahJanjiMedis(); i++) {
             if (dokter.getJanjiMedis(i).getIsActive()) {
@@ -47,7 +46,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
             }
         }
         tableJanjiMedis.setModel(model);
-        
+
     }
 
     private void bersihkan() {
@@ -383,7 +382,7 @@ public class DokterJanjiMedis extends javax.swing.JPanel {
 
     private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
         int selectedRow = tableJanjiMedis.getSelectedRow();
-        app.changeView(new DokterDetailJanji(1,app, dokter, dokter.getJanjiMedis(selectedRow)));
+        app.changeView(new DokterDetailJanji(1, app, dokter, dokter.getJanjiMedis(selectedRow)));
     }//GEN-LAST:event_btnDetailActionPerformed
 
     private void inputTanggalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_inputTanggalPropertyChange

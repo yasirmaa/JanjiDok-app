@@ -16,7 +16,6 @@ public class AdminSetDokter extends javax.swing.JPanel {
         tampilDokter();
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
-        System.out.println(app.getRS().getJumlahDokter());
     }
 
     public void bersihkan() {

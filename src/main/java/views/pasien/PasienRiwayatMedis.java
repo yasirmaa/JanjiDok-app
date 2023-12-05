@@ -32,7 +32,12 @@ public class PasienRiwayatMedis extends javax.swing.JPanel {
     }
 
     public void tampilTabel() {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Mengembalikan false agar sel tidak bisa diedit
+            }
+        };
         model.addColumn("No.");
         model.addColumn("Tanggal");
         model.addColumn("Dokter");
