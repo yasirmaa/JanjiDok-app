@@ -36,6 +36,7 @@ public class PasienHome extends javax.swing.JPanel {
         labelNama.setText(": " + pasien.getFullName());
         labelNoTelp.setText(": " + pasien.getNoTelp());
         labelUsername.setText(": " + pasien.getUsername());
+        
         if (pasien.getFotoProfile() == null) {
             ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
             lblImage.setIcon(icon);
