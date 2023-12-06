@@ -73,6 +73,7 @@ public class RumahSakit {
     
     public void tutupJanjiMedis(JanjiMedis janjiMedis) {        
         janjiMedis.setIsActive(false);
+        this.janjiMedis.remove(janjiMedis);
         janjiMedis.getDokter().getAllJanjiMedis().remove(janjiMedis);
         janjiMedis.getDokter().getAllRiwayatJanjiMedis().add(janjiMedis);
     }
@@ -81,6 +82,7 @@ public class RumahSakit {
 
     // Memulihkan JanjiMedis
     janjiMedis.setIsActive(true);
+    this.janjiMedis.add(janjiMedis);
     dokter.getAllJanjiMedis().add(janjiMedis);
     dokter.getAllRiwayatJanjiMedis().remove(janjiMedis);
 
