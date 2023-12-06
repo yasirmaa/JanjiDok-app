@@ -34,7 +34,7 @@ public class DokterHome extends javax.swing.JPanel {
             ImageIcon icon = new ImageIcon(getClass().getResource("/profile-user.png"));
             lblImage.setIcon(icon);
         } else {
-            ImageIcon icon = new ImageIcon("T:\\Kuliah\\Semester 3\\PBO\\JanjiDok\\src\\main\\resources\\" + dokter.getFotoProfile());
+            ImageIcon icon = new ImageIcon("D:\\matkul\\sem 3\\OOP\\Project\\JanjiDoc\\src\\main\\resources\\" + dokter.getFotoProfile());
             Image image = icon.getImage().getScaledInstance(105, 90, Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(image);
             lblImage.setIcon(ic);
